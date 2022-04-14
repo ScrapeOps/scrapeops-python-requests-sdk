@@ -55,4 +55,20 @@ class ResponseDataNormaliser:
                 return response.request.method
         return 'Unknown'
 
+    @staticmethod
+    def response_body(response):
+        try:
+            return response.text
+        except:
+            return None
+
+    @staticmethod
+    def response_json(response):
+        try:
+            json_body = response.json()
+            return json_body
+        except:
+            return None
+
+
 

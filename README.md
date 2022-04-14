@@ -50,9 +50,10 @@ You can get the ScrapeOps monitoring suite up and running in **3 easy steps**.
 
 
 #### #2 - Import & initialize the ScrapeOps logger</h3>
-Import then initialize the Scrapeops logger and add your API key.
+Import then initialize the Scrapeops logger and add your ``API key``.
+
 ```
-  from scrapeops_requests.scrapeops import ScrapeOpsRequests
+  from scrapeops_python_requests.scrapeops_requests import ScrapeOpsRequests
 
   scrapeops_logger =  ScrapeOpsRequests(
                         scrapeops_api_key=API_KEY_HERE, 
@@ -62,16 +63,57 @@ Import then initialize the Scrapeops logger and add your API key.
 ```
 
 
-#### #3 -  Initialize the scrapeops python requests
-The last step is to just override the standard python requests with our requests wrapper. 
-Our wrapper uses the standard python request library but just provides a way for us to monitor the requests as they happen. Please only initialize the requests wrapper once near the top of your code. 
+#### #3 -  Initialize the ScrapeOps Python Requests Wrapper
+The last step is to just override the standard python requests with our requests wrapper.
+
+Our wrapper uses the standard python request library but just provides a way for us to monitor the requests as they happen. 
+
+Please only initialize the requests wrapper once near the top of your code. 
 
 `requests = scrapeops_logger.RequestsWrapper()`
 
 
 
 #### Simple Example:
-We've added a simple example so you can see how you can add it to an existing project. See here:
+We've added a simple example so you can see how you can add it to an existing project.
+
+```
+from scrapeops_python_requests.scrapeops_requests import ScrapeOpsRequests
+
+
+## Initialize the ScrapeOps Logger
+scrapeops_logger = ScrapeOpsRequests(
+    scrapeops_api_key=API_KEY_HERE, 
+    spider_name='DemoSpider',
+    job_name='Test1',
+    )
+
+
+## Initialize the ScrapeOps Python Requests Wrapper
+requests = scrapeops_logger.RequestsWrapper() 
+
+urls = [
+        'http://quotes.toscrape.com/page/1/',
+        'http://quotes.toscrape.com/page/2/',
+        'http://quotes.toscrape.com/page/3/',
+        'http://quotes.toscrape.com/page/4/',
+        'http://quotes.toscrape.com/page/5/',
+        ]
+
+
+for url in urls:
+    response = requests.get(url)
+
+    item = {'test': 'hello'}
+
+    ## Log Scraped Item
+    scrapeops_logger.item_scraped(
+        response=response,
+        item=item
+    )
+    
+
+```
 
 
 #### Done!

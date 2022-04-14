@@ -47,6 +47,8 @@ class Logger:
                 proxy_port=RequestDataNormaliser.extract_proxy_port(kwargs),
                 status_code=ResponseDataNormaliser.status_code(response),
                 bytes=ResponseDataNormaliser.response_size(response),
+                body=ResponseDataNormaliser.response_body(response),
+                json_res=ResponseDataNormaliser.response_json(response),
             )
 
             Logger.log_response(logger, response_obj)

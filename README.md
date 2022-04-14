@@ -56,7 +56,7 @@ Import then initialize the Scrapeops logger and add your ``API key``.
   from scrapeops_python_requests.scrapeops_requests import ScrapeOpsRequests
 
   scrapeops_logger =  ScrapeOpsRequests(
-                        scrapeops_api_key=API_KEY_HERE, 
+                        scrapeops_api_key='API_KEY_HERE', 
                         spider_name='SPIDER_NAME_HERE',
                         job_name='JOB_NAME_HERE',
                       )
@@ -83,7 +83,7 @@ from scrapeops_python_requests.scrapeops_requests import ScrapeOpsRequests
 
 ## Initialize the ScrapeOps Logger
 scrapeops_logger = ScrapeOpsRequests(
-    scrapeops_api_key=API_KEY_HERE, 
+    scrapeops_api_key='API_KEY_HERE', 
     spider_name='DemoSpider',
     job_name='Test1',
     )

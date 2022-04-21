@@ -7,7 +7,6 @@ from scrapeops_python_logger.normalizer.request_response import SOPSRequest, SOP
 
 class Logger:
 
-    failedUrls = []
 
     @staticmethod
     def scrapeops_logger(request_func):
@@ -52,14 +51,6 @@ class Logger:
             )
 
             Logger.log_response(logger, response_obj)
-
-            #if the request is not of type 2xx then log it in the failed urls array
-            if str(response.status_code)[:1] != '2':
-                Logger.failedUrls.append(response.url)
-            else:
-                if response.url in Logger.failedUrls:
-                    Logger.failedUrls.remove(response.url)
-
 
             request_obj.get_finish_time() 
 

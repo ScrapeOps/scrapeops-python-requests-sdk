@@ -19,7 +19,7 @@ setup(name='scrapeops_python_requests',
           "json5>=0.9.5",
           "urllib3>=1.25.10",
           "itemadapter>=0.4.0",
-          "scrapeops_python_logger>=0.4.4",
+          "scrapeops_python_logger>=0.4.7",
           ],
       classifiers=[
         "Programming Language :: Python",

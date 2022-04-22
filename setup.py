@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 
-VERSION = '0.4.4'
+VERSION = '0.4.7'
 DESCRIPTION = 'Scrapeops Python Requests SDK, is a monitoring tool for your Python scraping scripts.'
 
 setup(name='scrapeops_python_requests',
